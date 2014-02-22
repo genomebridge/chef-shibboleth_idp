@@ -45,7 +45,7 @@
          value_source_attribute = false
        end
     -%>
-      xsi:type="<%= value_type %>"
+      xsi:type="<%= value_type %>" xmlns="urn:mace:shibboleth:2.0:resolver:ad"
     <% if value.has_key?('scope') -%>
       scope="<%= value['scope'] %>"
     <% end -%>
