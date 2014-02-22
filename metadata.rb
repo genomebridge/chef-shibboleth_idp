@@ -6,6 +6,6 @@ version           "0.1.2"
 
 recipe "shibboleth_idp", "Installs Shibboleth IdP"
 
-%w{ centos }.each do |os|
+%w{ centos debian ubuntu }.each do |os|
   supports os
 end
