@@ -167,6 +167,11 @@
       <% if value.has_key?("return_attributes") -%>
         <dc:ReturnAttributes><%= value["return_attributes"] %></dc:ReturnAttributes>
       <% end -%>
+    <StartTLSTrustCredential xsi:type="security:X509Filesystem"
+            xmlns:security="urn:mace:shibboleth:2.0:security"
+            id="UA_AD_CA_Certificate">
+            <security:Certificate><%= @cacert %></security:Certificate>
+    </StartTLSTrustCredential>
     </resolver:DataConnector>
 
   <% end -%>
