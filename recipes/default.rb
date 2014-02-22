@@ -109,7 +109,8 @@ template "#{node['shibboleth_idp']['home']}/conf/attribute-resolver.xml" do
     :attributes => node["shibboleth_idp"]["attributes"],
     :ldapresolvers => node["shibboleth_idp"]["ldap_resolvers"],
     :staticresolvers => node["shibboleth_idp"]["static_resolvers"],
-    :computedresolvers => node["shibboleth_idp"]["computed_resolvers"]
+    :computedresolvers => node["shibboleth_idp"]["computed_resolvers"],
+    :cacert => node["shibboleth_idp"]["cacert"]
   )
   notifies :restart, "service[tomcat]"
 end
