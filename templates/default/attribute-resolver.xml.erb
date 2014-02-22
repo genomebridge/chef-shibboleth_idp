@@ -145,7 +145,7 @@
      -->
 
   <% @ldapresolvers.each do |key,value| -%>
-    <resolver:DataConnector id="<%= key %>" xsi:type="dc:LDAPDirectory"
+    <resolver:DataConnector id="<%= key %>" xsi:type="dc:LDAPDirectory" xmlns="urn:mace:shibboleth:2.0:resolver:dc"
       <% value["attributes"].each do |attr,aval| -%>
         <%= attr %>="<%= aval %>"
       <% end -%>
