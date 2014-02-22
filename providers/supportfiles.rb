@@ -17,7 +17,7 @@ notifying_action :create do
   script "unpack_archive" do
     interpreter "bash"
     cwd "#{node['shibboleth_idp']['install_dir']}"
-    code "umask 0022 && unzip #{node['shibboleth_idp']['installer_archive']}"
+    code "umask 0022 && unzip -oq #{node['shibboleth_idp']['installer_archive']}"
     not_if "test -d #{node['shibboleth_idp']['installer_dir']}"
   end
 
