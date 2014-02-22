@@ -3,6 +3,7 @@
 # Attributes:: default
 #
 
+default["shibboleth_idp"]["cacert"] = "/etc/ldap/ssl/ca.crt"
 default["shibboleth_idp"]["version"] = "2.3.8"
 default["shibboleth_idp"]["install_dir"] = "/opt/src"
 default["shibboleth_idp"]["installer_dir"] = default["shibboleth_idp"]["install_dir"] + "/shibboleth-identityprovider-" + default["shibboleth_idp"]["version"]
