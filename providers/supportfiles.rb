@@ -4,9 +4,15 @@ notifying_action :create do
     mode "0755"
   end
 
-  cookbook_file "#{node['shibboleth_idp']['installer_archive']}" do
-    mode "0644"
+#  cookbook_file "#{node['shibboleth_idp']['installer_archive']}" do
+#    mode "0644"
+#  end
+
+  remote_file "#{node['shibboleth_idp']['installer_archive']}" do
+        source "http://shibboleth.net/downloads/identity-provider/#{node["shibboleth_idp"]["version"]}/shibboleth-identityprovider-#{node["shibboleth_idp"]["version"]}-bin.zip"
+        mode "0644"
   end
+
 
   script "unpack_archive" do
     interpreter "bash"
