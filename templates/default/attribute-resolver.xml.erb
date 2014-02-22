@@ -32,23 +32,26 @@
        else
          friendlyName = key
        end
-
+        
+       value_type=""
+       value_resolver=false
+       value_source_attribute=false
        if not value.has_key?('type')
-         value['type'] = 'Simple'
+         value_type = 'Simple'
        end
 
-       if ['Script', 'PrincipalName', 'TransientId'].include?(value['type'])
-         value['resolver'] = false
-         value['source_attribute'] = false
+       if ['Script', 'PrincipalName', 'TransientId'].include?(value_type)
+         value_resolver = false
+         value_source_attribute = false
        end
     -%>
-      xsi:type="ad:<%= value['type'] %>"
+      xsi:type="ad:<%= value_type %>"
     <% if value.has_key?('scope') -%>
       scope="<%= value['scope'] %>"
     <% end -%>
     <% if value.has_key?('source_attribute')
-         if value['source_attribute'] != false -%>
-      sourceAttributeID="<%= value['source_attribute'] %>"
+         if value_source_attribute != false -%>
+      sourceAttributeID="<%= value_source_attribute %>"
       <% end -%>
     <% else -%>
       sourceAttributeID="<%= key %>"
@@ -62,8 +65,8 @@
      end
     -%>
     <% if value.has_key?('resolver')
-         if value['resolver'] != false -%>
-      <resolver:Dependency ref="<%= value['resolver'] %>" />
+         if value_resolver != false -%>
+      <resolver:Dependency ref="<%= value_resolver %>" />
     <%   end
        else -%>
       <resolver:Dependency ref="<%= node["shibboleth_idp"]["default_resolver"] %>" />
