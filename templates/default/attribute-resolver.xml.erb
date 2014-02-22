@@ -45,7 +45,7 @@
          value_source_attribute = false
        end
     -%>
-      xsi:type="ad:<%= value_type %>"
+      xsi:type="<%= value_type %>"
     <% if value.has_key?('scope') -%>
       scope="<%= value['scope'] %>"
     <% end -%>
