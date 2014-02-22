@@ -38,6 +38,8 @@
        value_source_attribute=false
        if not value.has_key?('type')
          value_type = 'Simple'
+       else
+         value_type = value['type']
        end
 
        if ['Script', 'PrincipalName', 'TransientId'].include?(value_type)
